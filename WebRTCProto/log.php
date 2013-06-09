@@ -1,5 +1,5 @@
 <?php
-	include("sql.php"); // Connect to the database
+	include("sql.php");
 	
 	session_start();
 
@@ -39,6 +39,7 @@
 			$_SESSION['USERNAME'] = $username;
 			$_SESSION['DISPLAYNAME'] = $row["displayname"];
 			session_write_close();
+			include("setuseronline.php");
 			header("location: member.php");
 		}
 	}
