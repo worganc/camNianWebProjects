@@ -10,7 +10,11 @@
 		$onlineusers = "<table>";
 		while($row = mysql_fetch_assoc($result))
 		{
-			$onlineusers .= "<tr><td>" . $row["displayname"] . "</td></tr>";
+			$displayname = $row["displayname"];
+			if($displayname != $_SESSION["DISPLAYNAME"])
+			{
+				$onlineusers .= "<tr><td>" . $row["displayname"] . "</td></tr>";
+			}
 		}
 		$onlineusers .= "</table>";
 	}
